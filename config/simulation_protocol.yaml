@@ -1,0 +1,118 @@
+protocol:
+  name: paired_discrimination_simulation
+  version: 1.0.0
+  environment:
+    python: "3.11.8"
+    requires_python: ">=3.11,<3.12"
+
+dgm:
+  outcome:
+    distribution: Bernoulli
+    parameter: pi
+  scores_given_outcome:
+    distribution: bivariate_normal
+    mean: ["y * delta_a", "y * delta_b"]
+    covariance:
+      - [1.0, eta]
+      - [eta, 1.0]
+  auc_targets:
+    auc_a: 0.78
+    auc_b: 0.72
+    delta_population: 0.06
+  signal_parameters:
+    delta_a: "sqrt(2) * normal_ppf(0.78)"
+    delta_b: "sqrt(2) * normal_ppf(0.72)"
+
+parameter_grid:
+  order:
+    n: [250, 500, 1000]
+    pi: [0.2, 0.5]
+    eta: [0.2, 0.8, 0.95]
+    target_verification_rate: [0.8, 0.6, 0.4]
+    verification_mechanism: [MCAR, score_dependent_MAR, MNAR]
+  dgm_cell_count: 162
+  cell_id:
+    base: 0
+    range: [0, 161]
+    formula: "((((n_index * 2 + pi_index) * 3 + eta_index) * 3 + verification_rate_index) * 3 + mechanism_index)"
+
+verification_model:
+  probability: "expit(gamma_0 + gamma_y * Y + gamma_m * M + gamma_g * G)"
+  covariates:
+    M: "(S_A + S_B) / 2"
+    G: "abs(S_A - S_B)"
+  mechanisms:
+    MCAR:
+      gamma_y: 0.0
+      gamma_m: 0.0
+      gamma_g: 0.0
+      gamma_0: "logit(target_verification_rate)"
+      numerical_calibration: false
+    score_dependent_MAR:
+      gamma_y: 0.0
+      gamma_m: 0.6
+      gamma_g: 0.8
+      gamma_0: calibrated
+      numerical_calibration: true
+    MNAR:
+      gamma_y: "log(3)"
+      gamma_m: 0.6
+      gamma_g: 0.8
+      gamma_0: calibrated
+      numerical_calibration: true
+
+calibration:
+  base_seed: 20260902
+  calibration_sample_size: 500000
+  independent_validation_sample_size: 200000
+  numerical_calibration_count: 36
+  calibration_dimensions:
+    pi: [0.2, 0.5]
+    eta: [0.2, 0.8, 0.95]
+    mechanism: [score_dependent_MAR, MNAR]
+    target_verification_rate: [0.8, 0.6, 0.4]
+  common_random_numbers:
+    seed_sequence: "SeedSequence([20260902, pi_index, eta_index])"
+    child_0: calibration_sample
+    child_1: independent_validation_sample
+  root_solver:
+    method: scipy_optimize_brentq
+    bracket: [-40.0, 40.0]
+    xtol: 1.0e-10
+    rtol: 1.0e-12
+    maximum_iterations: 200
+    calibration_mean_absolute_tolerance: 1.0e-8
+    function: "mean(expit(gamma_0 + gamma_y*Y + gamma_m*M + gamma_g*G)) - target_verification_rate"
+  independent_validation:
+    pass_rule: "abs(achieved_verification_rate - target_verification_rate) <= 0.003"
+
+count_information:
+  applied_to_each_dataset: [exact, bounded, unrestricted_compatible]
+  exact:
+    count_set: "{m}"
+  bounded:
+    radius: "ceil(0.03 * n)"
+    count_set: "integers in [m-ceil(0.03*n), m+ceil(0.03*n)] intersect compatible_auc_counts"
+  unrestricted_compatible:
+    count_set: compatible_auc_counts
+
+simulation:
+  repetitions_per_dgm_cell: 2000
+  dgm_cells: 162
+  simulated_dataset_count: 324000
+  count_regimes_per_dataset: 3
+  paired_count_regime_analysis_count: 972000
+
+random_streams:
+  generator_family: "NumPy Generator using SeedSequence child streams"
+  base_seed: 20260901
+  replicate_id_range: [0, 1999]
+  replicate_seed_sequence: "SeedSequence([20260901, cell_id, replicate_id])"
+  spawned_substreams:
+    child_0: label_and_score_generation
+    child_1: verification_indicator_generation
+
+numerics:
+  implementation_tolerance: 1.0e-12
+  sign_tolerance: 1.0e-12
+  separate_width_degeneracy_tolerance: 1.0e-12
