@@ -96,31 +96,8 @@
     "bounded": "compatible integers intersect [m-15,m+15], oracle-centered",
     "unrestricted": "max(1,p)..min(n-1,p+u); no hidden Y"
   },
-  "pilot_reps": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9
-  ],
   "saved_reps": [
     0,
-    999,
-    1999
-  ],
-  "replay_cells": [
-    0,
-    17,
-    35
-  ],
-  "replay_reps": [
-    0,
-    1,
     999,
     1999
   ],

@@ -41,7 +41,7 @@ def make_figures(directory):
     ax.text(0,-.23,'Fixed evaluation cohorts; deterministic all-K integration; no sampling error bars.',transform=ax.transAxes,fontsize=9,color='#444444')
     for suffix in ('png','pdf'):fig.savefig(OUT/('overall_common_valid_width.'+suffix),dpi=180,bbox_inches='tight')
     plt.close(fig)
-    
+
     curve_frames=[]
     for cell in (0,80,161):
         path=ROOT/'checkpoints'/f'cohort_{cell:03d}_0000.parquet'

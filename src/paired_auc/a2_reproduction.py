@@ -237,4 +237,3 @@ def run(repository, output, mode='smoke', workers=1, all_k=False):
     result['historical_reference_comparisons'] = comparisons
     write_json(output/'results.json',result)
     return result
-

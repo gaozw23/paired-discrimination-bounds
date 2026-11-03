@@ -463,4 +463,3 @@ def generate_figures(out, replicates):
     fig.tight_layout(rect=[0,.05,1,.94])
     for ext in ('png','pdf'):fig.savefig(out/f'figures/mask_width_distributions.{ext}',dpi=180,bbox_inches='tight')
     plt.close(fig)
-

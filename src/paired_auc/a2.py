@@ -51,4 +51,3 @@ def binomial_plan(n: int, pi_true: float) -> tuple[list[dict], dict]:
                   "underflow_log_mass": underflow_logmass,
                   "zero_underflow_mass": not bool(underflow.any()),
                   "renormalized": False}
-
