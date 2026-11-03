@@ -1,0 +1,326 @@
+[
+  {
+    "cell_id": 0,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 1,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 2,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 3,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 4,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 5,
+    "pair_id": 0,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 6,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 7,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 8,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 9,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 10,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 11,
+    "pair_id": 1,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 12,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 13,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 14,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 15,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 16,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 17,
+    "pair_id": 2,
+    "n": 500,
+    "pi": 0.2,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 18,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 19,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 20,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 21,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 22,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 23,
+    "pair_id": 3,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.2,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 24,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 25,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 26,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 27,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 28,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 29,
+    "pair_id": 4,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.8,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 30,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 31,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 32,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.4,
+    "mechanism": "MNAR"
+  },
+  {
+    "cell_id": 33,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "MCAR"
+  },
+  {
+    "cell_id": 34,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "score_dependent_MAR"
+  },
+  {
+    "cell_id": 35,
+    "pair_id": 5,
+    "n": 500,
+    "pi": 0.5,
+    "kappa": 0.95,
+    "target_verification_rate": 0.8,
+    "mechanism": "MNAR"
+  }
+]

@@ -52,7 +52,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--calibration",
         type=Path,
-        default=CODE_ROOT / "results" / "calibration" / "gamma0_calibration.csv",
+        default=CODE_ROOT / "config" / "gaussian_gamma0.csv",
     )
     parser.add_argument(
         "--output-dir",

@@ -1,0 +1,131 @@
+{
+  "version": "P3.3-Gamma-1",
+  "base_seed": 20261102,
+  "namespace": 33,
+  "bit_generator": "PCG64",
+  "n": 500,
+  "replicates": 2000,
+  "shape0": 2,
+  "shape1": 4,
+  "scale_parameters": {
+    "A": {
+      "target_auc": 0.78,
+      "beta_x": 0.524774031371382,
+      "theta_1": 0.9055820986162729,
+      "theta_0": 1.0
+    },
+    "B": {
+      "target_auc": 0.72,
+      "beta_x": 0.5654976001755515,
+      "theta_1": 0.7683541003349311,
+      "theta_0": 1.0
+    }
+  },
+  "grid_order": {
+    "pi": [
+      0.2,
+      0.5
+    ],
+    "kappa": [
+      0.2,
+      0.8,
+      0.95
+    ],
+    "target_verification_rate": [
+      0.4,
+      0.8
+    ],
+    "mechanism": [
+      "MCAR",
+      "score_dependent_MAR",
+      "MNAR"
+    ]
+  },
+  "cell_id_formula": "(((i_pi*3+i_kappa)*2+i_rate)*3+i_mechanism)",
+  "pair_id_formula": "i_pi*3+i_kappa",
+  "stages": {
+    "calibration": 0,
+    "validation": 1,
+    "independent_test": 2,
+    "pilot": 3,
+    "production": 4
+  },
+  "root_mapping": "[20261102,33,stage,pair_id] for stages0/1; [20261102,33,2,test_id] for tests; [20261102,33,stage,cell_id,replicate_id] for stages3/4",
+  "draw_order": "root.spawn(2); child0 Generator(PCG64): binomial(1,pi,size) then standard_normal((size,2)); child1 Generator(PCG64): random(size) < fitted probability. Calibration/validation never draw R.",
+  "latent": "ZA=E[:,0]; ZB=kappa*E[:,0]+sqrt(1-kappa*kappa)*E[:,1]",
+  "quantile": "z<=0 gamma.ppf(ndtr(z),shape,scale=1); z>0 gamma.isf(ndtr(-z),shape,scale=1); no clipping; S=(theta_y*W-2)/sqrt(2)",
+  "verification_slopes": {
+    "MCAR": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "score_dependent_MAR": [
+      0.0,
+      0.6,
+      0.8
+    ],
+    "MNAR": [
+      1.0986122886681098,
+      0.6,
+      0.8
+    ]
+  },
+  "calibration": {
+    "size": 500000,
+    "validation_size": 200000,
+    "bracket": [
+      -40.0,
+      40.0
+    ],
+    "xtol": 1e-10,
+    "rtol": 1e-12,
+    "residual_limit": 1e-08,
+    "validation_abs_limit": 0.003
+  },
+  "numerics": {
+    "atol": 1e-12,
+    "rtol": 1e-12,
+    "sign_threshold": 1e-12,
+    "degenerate_width_threshold": 1e-12,
+    "integral_abs_tolerance": 1e-10,
+    "tail_log_roundtrip_tolerance": 1e-10
+  },
+  "regimes": {
+    "exact": "{m}, oracle",
+    "bounded": "compatible integers intersect [m-15,m+15], oracle-centered",
+    "unrestricted": "max(1,p)..min(n-1,p+u); no hidden Y"
+  },
+  "pilot_reps": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "saved_reps": [
+    0,
+    999,
+    1999
+  ],
+  "replay_cells": [
+    0,
+    17,
+    35
+  ],
+  "replay_reps": [
+    0,
+    1,
+    999,
+    1999
+  ],
+  "diagnostics": "class0/class1/pooled/unverified Pearson and Spearman; normalized rank contrast d/n tails; q/u; sample moments diagnostic, paired independent positives/negatives binomial MCSE",
+  "aggregation": "metric-specific valid replicates -> cell mean -> equal defined cell means; SD ddof1; mean MCSE=SD/sqrt(valid); proportions sqrt(p(1-p)/valid); no paired Gaussian test",
+  "plots": "1 gain summary all kappa/rate/mechanism and three regimes; 2 class Gamma densities and unverified normalized rank-contrast diagnostic all kappa/mechanisms",
+  "failures": "preserve original ID and raw exception; stop affected branch; no replacement seed, dropping, threshold or family change"
+}

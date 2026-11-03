@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite this software release and the accompanying paper."
+type: software
+title: "Sharp bounds for paired comparisons of discrimination under arbitrary label nonresponse"
+authors:
+  - family-names: Gao
+    given-names: Zhuowei
+  - family-names: Sun
+    given-names: Weipeng
+version: 1.1.0
+date-released: 2026-11-03
+license: MIT
+repository-code: "https://github.com/gaozw23/paired-discrimination-bounds"
+url: "https://github.com/gaozw23/paired-discrimination-bounds/releases/tag/v1.1.0"
+abstract: "Sharp finite-cohort paired-AUC bounds, continuous prevalence envelopes, external prevalence analysis, and Gaussian, Gamma and WDBC reproduction workflows."
+keywords:
+  - partial identification
+  - paired AUC
+  - label nonresponse
+  - prevalence

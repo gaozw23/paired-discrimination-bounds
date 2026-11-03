@@ -1,0 +1,114 @@
+{
+  "dataset_id": 17,
+  "positive_label": "M",
+  "negative_label": "B",
+  "score_A": {
+    "name": "Mean Radius",
+    "zero_based_column": 2
+  },
+  "score_B": {
+    "name": "Worst Radius",
+    "zero_based_column": 22
+  },
+  "direction": "A-B",
+  "cohort_rule": "all original records; preserve original order and ties; no training or selection",
+  "mechanisms": [
+    {
+      "id": 0,
+      "name": "MCAR",
+      "gamma_y": 0.0,
+      "gamma_m": 0.0,
+      "gamma_g": 0.0
+    },
+    {
+      "id": 1,
+      "name": "score_dependent_MAR",
+      "gamma_y": 0.0,
+      "gamma_m": 0.6,
+      "gamma_g": 0.8
+    },
+    {
+      "id": 2,
+      "name": "MNAR",
+      "gamma_y": "log(3)",
+      "gamma_m": 0.6,
+      "gamma_g": 0.8
+    }
+  ],
+  "rates": [
+    0.4,
+    0.6,
+    0.8
+  ],
+  "replicates": 100,
+  "regimes": [
+    "unrestricted",
+    "oracle_exact_count"
+  ],
+  "seed": [
+    20261102,
+    34,
+    1,
+    "mechanism_id",
+    "replicate_id"
+  ],
+  "rng": "Generator(PCG64(SeedSequence(...)))",
+  "uniform_shared_across_rates": true,
+  "calibration": {
+    "bracket": [
+      -40,
+      40
+    ],
+    "xtol": 1e-10,
+    "rtol": 1e-12,
+    "residual_max": 1e-08
+  },
+  "atol": 1e-12,
+  "rtol": 1e-12,
+  "sign_threshold": 1e-12,
+  "separate_degeneracy_threshold": 1e-12,
+  "attaining_count_vendor_tolerance": 1e-14,
+  "representative_rep": 0,
+  "quantiles": [
+    0.25,
+    0.5,
+    0.75
+  ],
+  "quantile_method": "linear",
+  "sd_ddof": 1,
+  "mean_mcse": "SD/sqrt(valid_n), only per stratum",
+  "proportion_mcse": "sqrt(p*(1-p)/valid_n), only per stratum",
+  "figures": [
+    "rep0 interval panels",
+    "stratified widths and reductions over 100 masks"
+  ],
+  "invalid_rules": {
+    "technical_failure": "preserve exception/ID; stop dependent conclusions",
+    "scientific_undefined": "retain row and NA; no redraw",
+    "cc": "defined only when verified positives and negatives both present",
+    "ratio": "NA when separate_width<=1e-12"
+  },
+  "summary": "18 strata; each valid replicate ratio first; paired exact-vs-unrestricted widths by same mask; CC error vs fixed empirical Delta_n only",
+  "dataset": {
+    "page": "https://archive.ics.uci.edu/dataset/17/breast-cancer-wisconsin-diagnostic",
+    "doi": "10.24432/C5DW2B",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "citation": "Wolberg, W., Mangasarian, O., Street, N., & Street, W. (1993). Breast Cancer Wisconsin (Diagnostic) [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5DW2B.",
+    "files": {
+      "wdbc.data": {
+        "url": "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data",
+        "sha256": "d606af411f3e5be8a317a5a8b652b425aaf0ff38ca683d5327ffff94c3695f4a",
+        "bytes": 124103
+      },
+      "wdbc.names": {
+        "url": "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.names",
+        "sha256": "840e04e3f20f8a5b326892f3b9cbc01c4cd6f7e6c597630b701ef6c0ac79f5ef",
+        "bytes": 4708
+      }
+    }
+  },
+  "smoke_replicates": [
+    0
+  ]
+}

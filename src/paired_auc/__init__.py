@@ -44,4 +44,6 @@ from .population import (
     trimmed_expectation_bounds,
 )
 
+__version__ = "1.1.0"
+
 __all__ = [name for name in globals() if not name.startswith("_")]

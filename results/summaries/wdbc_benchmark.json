@@ -1,0 +1,39 @@
+{
+  "n": 569,
+  "positive_count": 212,
+  "negative_count": 357,
+  "auc_a_pairwise": 0.9375165160403784,
+  "auc_b_pairwise": 0.9704428941387876,
+  "delta_full_n": -0.03292637809840915,
+  "auc_a_midrank": 0.9375165160403784,
+  "auc_b_midrank": 0.9704428941387876,
+  "delta_midrank": -0.032926378098409176,
+  "pearson": 0.9695389726112063,
+  "spearman": 0.9786044231727474,
+  "rank_contrast": {
+    "mean": 0.0,
+    "sd": 34.007818073802454,
+    "min": -223.5,
+    "max": 105.5,
+    "q25": -15.0,
+    "q50": 3.0,
+    "q75": 20.0,
+    "zero_count": 10
+  },
+  "ties_a": {
+    "unique_values": 456,
+    "tied_groups": 97,
+    "tied_records": 210,
+    "duplicate_excess": 113,
+    "tied_unordered_pairs": 130,
+    "cross_class_tied_pairs": 30
+  },
+  "ties_b": {
+    "unique_values": 457,
+    "tied_groups": 85,
+    "tied_records": 197,
+    "duplicate_excess": 112,
+    "tied_unordered_pairs": 144,
+    "cross_class_tied_pairs": 18
+  }
+}
